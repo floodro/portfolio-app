@@ -26,24 +26,44 @@
 
     <main>
         <section id="hero" class="container">
-            <div class="hero-text">
-                <p class="greeting">Hello, World!</p>
-                <h1>I'm <span class="highlight">Billymer Salamat</span>,<br>a Full-Stack Developer.</h1>
-                <p class="intro">I build robust, scalable, and user-friendly web applications from concept to deployment. Let's create something amazing together.</p>
-                <div class="hero-buttons">
-                    <a href="projects.html" class="btn btn-primary">See My Work <span class="arrow">→</span></a>
-                    <a href="contact.html" class="btn btn-light">Get In Touch</a>
+            <!-- Floating Tech Icons Background -->
+            <div class="tech-bg" id="tech-bg"></div>
+            
+            <!-- Decorative Shapes -->
+            <div class="decorative-shape shape-1"></div>
+            <div class="decorative-shape shape-2"></div>
+            <div class="glow"></div>
+            
+            <div class="hero-content">
+                <div class="hero-text">
+                    <p class="greeting animate-fade-up" data-animate-delay="0">Hello, World! 👋</p>
+                    <h1 class="animate-fade-up" data-animate-delay="100">
+                        I'm <span class="highlight">Billymer Salamat</span>,
+                        <span id="dynamic-title" class="typing-text">Full-Stack Developer</span>
+                    </h1>
+                    <p class="intro animate-fade-up" data-animate-delay="200">
+                        Crafting digital experiences that blend <span class="highlight-text">beauty</span> and <span class="highlight-text">functionality</span>.
+                        Let's build something extraordinary together.
+                    </p>
+                    <div class="hero-buttons animate-fade-up" data-animate-delay="300">
+                        <a href="projects.html" class="btn btn-primary">
+                            View My Work <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="contact.html" class="btn btn-light">
+                            Let's Talk <i class="fas fa-comment-dots"></i>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="hero-image">
-                <div class="image-bg-shape"></div>
-                <img src="assets/photo.png" alt="Portrait of Billymer Salamat">
+                <div class="hero-image animate-float">
+                    <div class="image-bg-shape animate-bg-morph"></div>
+                    <img src="assets/photo.png" alt="Portrait of Billymer Salamat">
+                    <div class="hero-image-overlay"></div>
+                </div>
             </div>
         </section>
 
         <section id="tools" class="container">
             <div class="section-header">
-               <p>— My Tech Stack</p>
                <h2>Tools & Technologies I Use</h2>
             </div>
             <div class="tech-cards-grid">
@@ -63,8 +83,10 @@
                    <div class="tech-logos-grid">
                        <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js"><span>Node.js</span></div>
                        <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" alt="Express.js"><span>Express</span></div>
+                       <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg"><span>Spring</span></div>
                        <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python"><span>Python</span></div>
                        <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original.svg" alt="Flask"><span>Flask</span></div>
+                       <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg" alt="Django"><span>Django</span></div>
                    </div>
                </div>
                <div class="tech-card">
@@ -79,9 +101,12 @@
                     </div>
                 </div>
                 <div class="tech-card">
-                    <h3>Hosting and Deployment</h3>
+                    <h3>Hosting and Cloud Services</h3>
                     <div class="tech-logos-grid">
                         <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/heroku/heroku-original.svg" alt="Heroku"><span>Heroku</span></div>
+                        <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/netlify/netlify-original.svg" alt="Netlify"><span>Netlify</span></div>
+                        <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg" alt="Vercel"><span>Vercel</span></div>
+                        <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud"><span>Google Cloud</span></div>
                         <div class="tech-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS"><span>AWS</span></div>
                     </div>
                 </div>
@@ -111,7 +136,82 @@
     </main>
 
     <footer class="site-footer">
-        <p>© 2025 Billymer Salamat. All rights reserved.</p>
+        <p> 2025 Billymer Salamat. All rights reserved.</p>
     </footer>
+
+    <script>
+    // Floating Tech Icons Generator
+    document.addEventListener('DOMContentLoaded', () => {
+        const techIcons = ['</i>', '{}', '()', '[]', '<div>', 'npm', 'git', 'node', 'react', 'python'];
+        const techBg = document.getElementById('tech-bg');
+        
+        // Create 20 floating tech icons
+        for (let i = 0; i < 20; i++) {
+            const icon = document.createElement('div');
+            icon.className = 'tech-icon';
+            icon.textContent = techIcons[Math.floor(Math.random() * techIcons.length)];
+            icon.style.left = `${Math.random() * 100}%`;
+            icon.style.animationDelay = `${Math.random() * 5}s`;
+            icon.style.animationDuration = `${15 + Math.random() * 20}s`;
+            techBg.appendChild(icon);
+        }
+
+        // Dynamic Typewriter Titles
+        const titles = [
+            "Full-Stack Developer",
+            "JavaScript Enthusiast",
+            "Python Debugger",
+            "Problem Solver",
+            "Adventurer"
+        ];
+        
+        let titleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let currentTitle = '';
+        let typingSpeed = 200; // ms per character
+        let deleteSpeed = 50;  // ms per character when deleting
+        let pauseBetweenTitles = 2000; // ms to pause before starting next title
+        
+        function typeTitle() {
+            const titleElement = document.getElementById('dynamic-title');
+            const currentTitleText = titles[titleIndex];
+            
+            if (isDeleting) {
+                // Delete characters
+                currentTitle = currentTitleText.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = deleteSpeed;
+            } else {
+                // Type characters
+                currentTitle = currentTitleText.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = 100; // Reset to normal typing speed
+            }
+            
+            titleElement.textContent = currentTitle;
+            
+            if (!isDeleting && charIndex === currentTitleText.length) {
+                // Finished typing, pause then start deleting
+                typingSpeed = pauseBetweenTitles;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                // Finished deleting, move to next title
+                isDeleting = false;
+                titleIndex = (titleIndex + 1) % titles.length;
+            }
+            
+            setTimeout(typeTitle, typingSpeed);
+        }
+        
+        // Start the typewriter effect after a short delay
+        setTimeout(typeTitle, 1000);
+        
+        // Animate hero content
+        document.querySelectorAll('.animate-fade-up').forEach(el => {
+            setTimeout(() => el.classList.add('in'), parseInt(el.dataset.animateDelay) || 0);
+        });
+    });
+    </script>
 </body>
 </html>
